@@ -6,9 +6,9 @@
 #include <iostream>
 #include <utility>
 
-Client::Client(std::string nume, int varsta, int idClient, const std::string &sex) : nume(std::move(nume)), varsta(varsta),
+Client::Client(std::string nume, int varsta, int idClient, std::string sex) : nume(std::move(nume)), varsta(varsta),
                                                                                             ID_client(idClient),
-                                                                                            sex(sex) {}
+                                                                                            sex(std::move(sex)) {}
 
 Client::Client() {
     nume="invalid";
@@ -17,9 +17,7 @@ Client::Client() {
     sex="invalid";
 }
 
-Client::~Client() {
-
-}
+Client::~Client() = default;
 
 const std::string &Client::getNume() const {
     return nume;
@@ -73,10 +71,4 @@ std::istream &operator>>(std::istream &is, Client &client) {
     return is;
 }
 
-Client &Client::operator=(const Client &rhs) {
-    nume=rhs.nume;
-    varsta=rhs.varsta;
-    ID_client=rhs.ID_client;
-    sex=rhs.sex;
-    return *this;
-}
+Client &Client::operator=(const Client &rhs) = default;

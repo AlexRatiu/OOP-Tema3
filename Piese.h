@@ -13,7 +13,7 @@ protected:
 std::string producator;
 int id;
 public:
-    Piese(const std::string &producator, int id);
+    Piese(std::string producator, int id);
 
     Piese();
 
@@ -21,9 +21,9 @@ public:
 
     Piese(const Piese &rhs);
 
-    const std::string &getProducator() const;
+    [[nodiscard]] const std::string &getProducator() const;
 
-    int getId() const;
+    [[nodiscard]] int getId() const;
 
     void setProducator(const std::string &producator);
 
@@ -37,7 +37,7 @@ public:
 
     friend std::istream &operator >>(std::istream &is, Piese &piese);
 
-    virtual Piese* cloneaza() const = 0;
+    [[nodiscard]] virtual Piese* cloneaza() const = 0;
 };
 
 

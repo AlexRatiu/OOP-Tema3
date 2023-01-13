@@ -6,8 +6,8 @@
 #include <iostream>
 #include <utility>
 
-Scaune::Scaune(const std::string &producator, int id, std::string material, const std::string &tipScaun) : Piese(
-        producator, id), material(std::move(material)), tip_scaun(tipScaun) {}
+Scaune::Scaune(const std::string &producator, int id, std::string material, std::string tipScaun) : Piese(
+        producator, id), material(std::move(material)), tip_scaun(std::move(tipScaun)) {}
 
 Scaune::Scaune() : Piese() {
     material = "invalid";

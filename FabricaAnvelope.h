@@ -11,7 +11,7 @@
 
 class FabricaAnvelope : public Fabrica {
 public:
-    Anvelope* creeaza_anvelopa(){
+    Anvelope* creeaza_anvelopa() override{
         return new Anvelope;
     }
 

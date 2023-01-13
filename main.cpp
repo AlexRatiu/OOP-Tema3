@@ -19,8 +19,8 @@ int main() {
     f1[1]=fabrica1->creeaza_anvelopa();
     f1[2]=fabrica1->creeaza_anvelopa();
 
-    for(int i =0; i<3;i++)
-        std::cout<<*f1[i];
+    for(auto & i : f1)
+        std::cout<<*i;
 
     Fabrica* fabrica2 = new FabricaScaune();
     Piese *f2[3];
@@ -29,17 +29,17 @@ int main() {
     f2[1]=fabrica2->creeaza_scaune();
     f2[2]=fabrica2->creeaza_scaune();
 
-    for(int i =0; i<3;i++)
-        std::cout<<*f2[i];
+    for(auto & i : f2)
+        std::cout<<*i;
 
     int arr[3]={1,2,3};
     ListaPiese<int> a(arr,3);
     a.print();
 
-    Anvelope* anv2 = dynamic_cast<Anvelope*>(f1[0]->cloneaza());
+    auto* anv2 = dynamic_cast<Anvelope*>(f1[0]->cloneaza());
     std::cout<<*anv2<<std::endl;
 
-    Scaune* sc2 = dynamic_cast<Scaune*>(f2[0]->cloneaza());
+    auto* sc2 = dynamic_cast<Scaune*>(f2[0]->cloneaza());
     std::cout<<*sc2<<std::endl;
     return 0;
 }

@@ -4,17 +4,16 @@
 
 #include "Piese.h"
 #include <iostream>
+#include <utility>
 
-Piese::Piese(const std::string &_producator, int _id) : producator(_producator), id(_id) {}
+Piese::Piese(std::string _producator, int _id) : producator(std::move(_producator)), id(_id) {}
 
 Piese::Piese() {
     producator = "invalid";
     id=0;
 }
 
-Piese::~Piese() {
-
-}
+Piese::~Piese() = default;
 
 Piese::Piese(const Piese &rhs) {
     producator=rhs.producator;

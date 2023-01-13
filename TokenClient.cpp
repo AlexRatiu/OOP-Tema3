@@ -3,7 +3,7 @@
 //
 
 #include "TokenClient.h"
-TokenClient* TokenClient::copie=0;
+TokenClient* TokenClient::copie=nullptr;
 TokenClient *TokenClient::instanta() {
     if(!copie){
         copie=new TokenClient();

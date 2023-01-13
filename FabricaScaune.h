@@ -10,7 +10,7 @@
 
 class FabricaScaune : public Fabrica {
 public:
-    Piese* creeaza_scaune(){
+    Piese* creeaza_scaune() override{
         return new Scaune;
     }
 
