@@ -14,7 +14,7 @@ class Scaune : public Piese {
     std::string material;
     std::string tip_scaun;
 public:
-    Scaune(const std::string &producator, int id, std::string material, const std::string &tipScaun);
+    Scaune(const std::string &producator, int id, std::string material, std::string tipScaun);
 
     Scaune();
 
@@ -22,9 +22,9 @@ public:
 
     Scaune(const Scaune &rhs);
 
-    const std::string &getMaterial() const;
+    [[nodiscard]] const std::string &getMaterial() const;
 
-    const std::string &getTipScaun() const;
+    [[nodiscard]] const std::string &getTipScaun() const;
 
     void setMaterial(const std::string &material);
 
@@ -38,8 +38,8 @@ public:
 
     Scaune &operator=(const Scaune &rhs);
 
-    Scaune* cloneaza() const override {
-        Scaune* sc = new Scaune(producator,id,material,tip_scaun);
+    [[nodiscard]] Scaune* cloneaza() const override {
+        auto* sc = new Scaune(producator,id,material,tip_scaun);
         return sc;
     }
 

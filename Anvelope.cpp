@@ -4,10 +4,11 @@
 
 #include "Anvelope.h"
 #include <iostream>
+#include <utility>
 
 Anvelope::Anvelope(const std::string &producator, int id, int diametru, int latime, int talon,
-                   const std::string &anotimp) : Piese(producator, id), diametru(diametru), latime(latime),
-                                                 talon(talon), anotimp(anotimp) {}
+                   std::string anotimp) : Piese(producator, id), diametru(diametru), latime(latime),
+                                                 talon(talon), anotimp(std::move(anotimp)) {}
 
 Anvelope::Anvelope() : Piese() {
     diametru=0;
@@ -16,9 +17,7 @@ Anvelope::Anvelope() : Piese() {
     anotimp="invalid";
 }
 
-Anvelope::~Anvelope() {
-
-}
+Anvelope::~Anvelope() = default;
 
 Anvelope::Anvelope(const Anvelope &rhs) : Piese(rhs) {
     diametru=rhs.diametru;

@@ -12,19 +12,19 @@ class Client {
     int ID_client;
     std::string sex;
 public:
-    Client(std::string nume, int varsta, int idClient, const std::string &sex);
+    Client(std::string nume, int varsta, int idClient, std::string sex);
 
     Client();
 
     virtual ~Client();
 
-    const std::string &getNume() const;
+    [[nodiscard]] const std::string &getNume() const;
 
-    int getVarsta() const;
+    [[nodiscard]] int getVarsta() const;
 
-    int getIdClient() const;
+    [[nodiscard]] int getIdClient() const;
 
-    const std::string &getSex() const;
+    [[nodiscard]] const std::string &getSex() const;
 
     void setNume(const std::string &nume);
 

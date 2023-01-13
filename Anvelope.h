@@ -16,7 +16,7 @@ class Anvelope : public Piese{
     std::string anotimp;
 
 public:
-    Anvelope(const std::string &producator, int id, int diametru, int latime, int talon, const std::string &anotimp);
+    Anvelope(const std::string &producator, int id, int diametru, int latime, int talon, std::string anotimp);
 
     Anvelope();
 
@@ -24,13 +24,13 @@ public:
 
     Anvelope(const Anvelope &rhs);
 
-    int getDiametru() const;
+    [[nodiscard]] int getDiametru() const;
 
-    int getLatime() const;
+    [[nodiscard]] int getLatime() const;
 
-    int getTalon() const;
+    [[nodiscard]] int getTalon() const;
 
-    const std::string &getAnotimp() const;
+    [[nodiscard]] const std::string &getAnotimp() const;
 
     void setDiametru(int diametru);
 
@@ -48,8 +48,8 @@ public:
 
     Anvelope &operator = (const Anvelope &rhs);
 
-    Anvelope* cloneaza() const override {
-        Anvelope* anv = new Anvelope(producator,id,diametru,latime,talon,anotimp);
+    [[nodiscard]] Anvelope* cloneaza() const override {
+        auto* anv = new Anvelope(producator,id,diametru,latime,talon,anotimp);
         return anv;
     }
 
